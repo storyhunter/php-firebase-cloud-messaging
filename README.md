@@ -8,14 +8,14 @@ See original Firebase docs: https://firebase.google.com/docs/
 #Setup
 Install via Composer:
 ```
-composer require sngrl/php-firebase-cloud-messaging
+composer require redjanym/php-firebase-cloud-messaging
 ```
 
 Or add this to your composer.json and run "composer update":
 
 ```
 "require": {
-    "sngrl/php-firebase-cloud-messaging": "dev-master"
+    "redjanym/php-firebase-cloud-messaging": "1.*"
 }
 ```
 
@@ -29,7 +29,6 @@ use sngrl\PhpFirebaseCloudMessaging\Notification;
 $server_key = '_YOUR_SERVER_KEY_';
 $client = new Client();
 $client->setApiKey($server_key);
-$client->injectGuzzleHttpClient(new \GuzzleHttp\Client());
 
 $message = new Message();
 $message->setPriority('high');
@@ -56,7 +55,6 @@ use sngrl\PhpFirebaseCloudMessaging\Notification;
 $server_key = '_YOUR_SERVER_KEY_';
 $client = new Client();
 $client->setApiKey($server_key);
-$client->injectGuzzleHttpClient(new \GuzzleHttp\Client());
 
 $message = new Message();
 $message->setPriority('high');
@@ -78,7 +76,6 @@ use sngrl\PhpFirebaseCloudMessaging\Client;
 $server_key = '_YOUR_SERVER_KEY_';
 $client = new Client();
 $client->setApiKey($server_key);
-$client->injectGuzzleHttpClient(new \GuzzleHttp\Client());
 
 $response = $client->addTopicSubscription('_SOME_TOPIC_ID_', ['_FIRST_TOKEN_', '_SECOND_TOKEN_']);
 var_dump($response->getStatusCode());
@@ -92,7 +89,6 @@ use sngrl\PhpFirebaseCloudMessaging\Client;
 $server_key = '_YOUR_SERVER_KEY_';
 $client = new Client();
 $client->setApiKey($server_key);
-$client->injectGuzzleHttpClient(new \GuzzleHttp\Client());
 
 $response = $client->removeTopicSubscription('_SOME_TOPIC_ID_', ['_FIRST_TOKEN_', '_SECOND_TOKEN_']);
 var_dump($response->getStatusCode());
