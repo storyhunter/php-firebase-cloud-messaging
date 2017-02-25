@@ -1,5 +1,5 @@
 {
-    "name": "sngrl/php-firebase-cloud-messaging",
+    "name": "redjanym/php-firebase-cloud-messaging",
     "description": "PHP API for Firebase Cloud Messaging from Google",
     "license": "MIT",
     "keywords": ["PHP","FCM","Google","Firebase","Cloud","Notifications","Android","iOS","Chrome"],
@@ -8,6 +8,10 @@
         {
             "name": "Sngrl",
             "email": "i@sngrl.ru"
+        },
+        {
+            "name": "Redjan Ymeraj",
+            "email": "ymerajr@yahoo.com"
         }
     ],
     "require": {
