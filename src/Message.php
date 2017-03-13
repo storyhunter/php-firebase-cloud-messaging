@@ -182,7 +182,7 @@ class Message implements \JsonSerializable
                 if (count($this->recipients) == 1) {
                     return current($this->recipients)->getToken();
                 } else {
-                    return array_map(function($device){
+                    return array_map(function(Device $device){
                         return $device->getToken();
                     }, $this->recipients);
                 }
