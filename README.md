@@ -1,4 +1,7 @@
 # PHP Firebase Cloud Messaging
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/83a88985-9752-463b-ae62-7abb06aea791/big.png)](https://insight.sensiolabs.com/projects/83a88985-9752-463b-ae62-7abb06aea791)
+
 PHP API for Firebase Cloud Messaging from Google.
 
 Currently this app server library only supports sending Messages/Notifications via HTTP.
