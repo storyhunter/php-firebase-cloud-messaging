@@ -38,7 +38,7 @@ class Message implements \JsonSerializable
             $this->recipientType = get_class($recipient);
         }
         if ($this->recipientType !== get_class($recipient)) {
-            throw new \InvalidArgumentException('mixed recepient types are not supported by FCM');
+            throw new \InvalidArgumentException('Mixed recipient types are not supported by FCM');
         }
 
         return $this;
@@ -142,7 +142,14 @@ class Message implements \JsonSerializable
             throw new \UnexpectedValueException('Message must have at least one recipient');
         }
 
-        $jsonData['to'] = $this->createTo();
+        $target = $this->createTo();
+
+        if(is_array($target)){
+            $jsonData['registration_ids'] = $target;
+        } else {
+            $jsonData['to'] = $target;
+        }
+
         if ($this->collapseKey) {
             $jsonData['collapse_key'] = $this->collapseKey;
         }
@@ -174,6 +181,10 @@ class Message implements \JsonSerializable
             case Device::class:
                 if (count($this->recipients) == 1) {
                     return current($this->recipients)->getToken();
+                } else {
+                    return array_map(function($device){
+                        return $device->getToken();
+                    }, $this->recipients);
                 }
 
                 break;
@@ -181,6 +192,5 @@ class Message implements \JsonSerializable
                 throw new \UnexpectedValueException('PhpFirebaseCloudMessaging only supports single topic and single device messages yet');
                 break;
         }
-        return null;
     }
 }

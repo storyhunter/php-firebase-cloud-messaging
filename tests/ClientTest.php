@@ -32,7 +32,6 @@ class ClientTest extends PhpFirebaseCloudMessagingTestCase
             ->with(Client::DEFAULT_API_URL, array('headers' => $headers, 'body' => '{"to":"\\/topics\\/test"}'))
             ->andReturn(\Mockery::mock(Response::class));
 
-        $this->fixture->injectGuzzleHttpClient($guzzle);
         $this->fixture->setApiKey($apiKey);
 
         $message = new Message();

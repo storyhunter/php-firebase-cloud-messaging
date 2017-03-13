@@ -123,7 +123,6 @@ class Client implements ClientInterface
         );
     }
 
-
     private function getApiUrl()
     {
         return isset($this->proxyApiUrl) ? $this->proxyApiUrl : self::DEFAULT_API_URL;
