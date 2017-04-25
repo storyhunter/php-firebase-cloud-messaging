@@ -13,7 +13,6 @@ class Notification extends Message
     private $sound;
     private $clickAction;
     private $tag;
-    private $content_available;
 
     public function __construct($title = '', $body = '')
     {
@@ -78,12 +77,6 @@ class Notification extends Message
         return $this;
     }
 
-    public function setContentAvailable($content_available)
-    {
-        $this->content_available = $content_available;
-        return $this;
-    }
-
     public function jsonSerialize()
     {
         $jsonData = $this->getJsonData();
@@ -108,9 +101,6 @@ class Notification extends Message
         if ($this->tag) {
             $jsonData['tag'] = $this->tag;
         }
-        if ($this->content_available) {
-            $jsonData['content_available'] = $this->content_available;
-        }        
         return $jsonData;
     }
 }

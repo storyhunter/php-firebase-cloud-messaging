@@ -68,4 +68,19 @@ class MessageTest extends PhpFirebaseCloudMessagingTestCase
             json_encode($message)
         );
     }
+
+    public function testJsonSerializeWithContentAvailable()
+    {
+        $body = '{"to":"deviceId","content_available":true,"notification":{"title":"test","body":"a nice testing notification"}}';
+
+        $notification = new Notification('test', 'a nice testing notification');
+        $message = new Message();
+        $message->setNotification($notification);
+        $message->setContentAvailable(true);
+        $message->addRecipient(new Device('deviceId'));
+        $this->assertSame(
+            $body,
+            json_encode($message)
+        );
+    }
 }
