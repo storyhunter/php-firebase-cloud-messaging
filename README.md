@@ -22,7 +22,7 @@ Or add this to your composer.json and run "composer update":
 }
 ```
 
-#Send message to Device
+#Send message to **one or multiple** Devices
 ```
 use sngrl\PhpFirebaseCloudMessaging\Client;
 use sngrl\PhpFirebaseCloudMessaging\Message;

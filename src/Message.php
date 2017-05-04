@@ -13,6 +13,7 @@ class Message implements \JsonSerializable
     private $notification;
     private $collapseKey;
     private $priority;
+    private $contentAvailable;
     private $data;
     private $recipients = [];
     private $recipientType;
@@ -59,6 +60,17 @@ class Message implements \JsonSerializable
     public function setPriority($priority)
     {
         $this->priority = $priority;
+        return $this;
+    }
+
+    public function getContentAvailable()
+    {
+        return $this->contentAvailable;
+    }
+
+    public function setContentAvailable($contentAvailable)
+    {
+        $this->contentAvailable = $contentAvailable;
         return $this;
     }
 
@@ -158,6 +170,9 @@ class Message implements \JsonSerializable
         }
         if ($this->priority) {
             $jsonData['priority'] = $this->priority;
+        }
+        if ($this->contentAvailable) {
+            $jsonData['content_available'] = $this->contentAvailable;
         }
         if ($this->notification) {
             $jsonData['notification'] = $this->notification;
